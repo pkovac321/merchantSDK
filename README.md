@@ -7,7 +7,7 @@ The application integrates with a [Primer widget](https://primer.io/docs/sdk/), 
 
 Before running this sample application, you must obtain an `mAccount` to gain access to the API Gateway.
 
-You can acquire an `mAccount` through the online Portal or by contacting [Monoova Support directly](https://www.monoova.com/contact).
+You can acquire an `mAccount` through Monoova's Developer Portal (https://developer.monoova.com/) or by contacting [Monoova Support directly](https://www.monoova.com/contact).
 
 You will also need to install Node.js to run the sample application.
 
