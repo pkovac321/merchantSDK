@@ -1,7 +1,6 @@
 import express, { Express, Request, Response } from 'express';
 import path from 'path';
 import dotenv from 'dotenv';
-import iso3166 from 'iso-3166-2';
 import swaggerUi from 'swagger-ui-express';
 import swaggerSpec from './swaggerDef';
 
@@ -23,9 +22,7 @@ app.get('/', (req: Request, res: Response) => res.sendFile(path.join(__dirname, 
 
 app.post('/token', tokenController.createToken);
 
-app.get('/api/countries', (req: Request, res: Response) => {
-    res.json(iso3166.data);
-});
+app.post('/createTokenCustomInput', tokenController.createTokenCustomInput);
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => console.log(`Server is running on http://localhost:${PORT}`));
