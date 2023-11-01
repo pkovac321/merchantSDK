@@ -14,6 +14,10 @@ You will also need to install Node.js to run the sample application.
 # Getting Started
 
 1. Clone the Repo.
+   - The repo has two implementations 
+      - fullImplementation: This shows an entire example including a html form that takes in the minimum values required to create a session
+      - basicImplementation: This example is a cut down version of fullImplementation. It's more suitable when integrating into an existing implementation where the required customer details are already being retrieved. It does not include the html form to take inputs to create a client session. Instead they are hardcoded in the expressjs application.
+      - choose your implementation by opening either the fullImplementation or basicImplementation folder into your editor of choice; visual studio code as an example.
 2. Navigate to your `config/sandbox.json` and make any necessary edits to the configuration settings.
   ```json
   {
@@ -86,14 +90,15 @@ This script initiates a server request to the `/token` endpoint. It utilises the
 
 The client session and any UI customisation options are passed along during this step.
 
-## Server.js
+## Server.ts
 
-This file is the backend interface, handling all API calls to Monoova. The details of each specific call are abstracted within this file.
+This file is the backend application written in expressJS, handling all API calls to Monoova. The details of each specific call are abstracted within this file.
 
 - The application serves a `checkout.html` page that includes a form to capture customer details.
 - When the form is submitted, the form payload is sent to the `/token` endpoint.
 - The `/token` endpoint authenticates with Monoova using credentials provided from the configuration file, returning a bearer token.
 - The bearer token is used in the subsequent request to create a client session.
+- there is also a `/swagger` endpoint when running either implementation to test custom token payloads
 
 ## Style customisation
 
