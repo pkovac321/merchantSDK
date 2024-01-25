@@ -30,22 +30,22 @@ import { CreateClientSessionTokenRequest } from '../models/CreateClientSessionTo
  *         description: Bad Request
  *       500:
  *         description: Internal Server Error
- */   
+ */
 export const createToken = async (req: Request, res: Response) => {
     try {
         const createClientSessionTokenRequest: CreateClientSessionTokenRequest = req.body;
         if (!createClientSessionTokenRequest.clientTransactionUniqueReference) {
             createClientSessionTokenRequest.clientTransactionUniqueReference = uuidv4();
-        }       
-        
+        }
+
         const loginResponse: MonoovaLoginResponse = await monoovaService.loginToMonoova();
-        
+
         const createTokenResponse = await monoovaService.createClientSessionToken(loginResponse.token, createClientSessionTokenRequest)
 
         if (createTokenResponse.errors && createTokenResponse.errors.length > 0) {
             const errorDetails = createTokenResponse.errors.map(error => error.errorMessage).join('; ');
             return res.status(400).json({ error: errorDetails });
-        } 
+        }
 
         res.json(createTokenResponse);
     } catch (error) {
@@ -55,5 +55,13 @@ export const createToken = async (req: Request, res: Response) => {
         } else {
             res.status(500).json({ error: 'Internal Server Error' });
         }
+    }
+};
+
+export const backendHandshake = async () => {
+    try {
+        await monoovaService.loginToMonoova();
+    } catch (error) {
+        console.error("Error during login to Monoova:", error);
     }
 };
