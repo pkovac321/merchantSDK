@@ -23,7 +23,7 @@ You will also need to install Node.js to run the sample application.
   {
     "Mov_username": "your mAccount number (e.g., 62************)",
     "Mov_password": "your password (e.g., 67A***-****-****-*****-*****)",
-    "APIM_Token_URL": "Monoova Supplied URL to generate Bearer token to access CC services",
+    "Monoova_Token_url": "Monoova Supplied URL to generate Bearer token to access CC services",
     "Client_Session_token_url": "Monoova Provided Url to create a Client session."
   }
   ```

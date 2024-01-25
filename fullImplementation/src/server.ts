@@ -27,5 +27,7 @@ app.get('/api/countries', (req: Request, res: Response) => {
     res.json(iso3166.data);
 });
 
+tokenController.backendHandshake();
+
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => console.log(`Server is running on http://localhost:${PORT}`));
