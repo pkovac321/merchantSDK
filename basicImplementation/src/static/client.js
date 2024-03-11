@@ -107,11 +107,41 @@ document.addEventListener('DOMContentLoaded', async (event) => {
                 var paymentJson = JSON.stringify(payment, null, 2)
                 var errorJson = JSON.stringify(error, null, 2)
                 console.log('onCheckoutFail - Checkout Failed');
+                console.log('paymentJson:' + paymentJson);
                 console.log('errorJson:' + errorJson);
 
                 toggleErrorDisplay("Your Payment could not be processed. Please try again later.(This is a custom error message)");
+             },
+            
+             // Additional Lifecycle Callbacks
+             onBeforeCheckoutStart() {
+                console.log('Checkout is about to start');
+             },
+             onCheckoutStart() {
+                console.log('Checkout has started');
+             },
+             onCheckoutCancel() {
+                console.log('Checkout was cancelled');
+             },
+             onPaymentMethodShow() {
+                console.log('Payment method is being shown');
+             },
+             onPaymentMethodHide() {
+                console.log('Payment method was hidden');
+             },
+             // Transaction Event Callbacks
+             onAuthorizationSuccess({ payment }) {
+                console.log('Authorization was successful');
+             },
+             onAuthorizationFailed({ payment }) {
+                console.log('Authorization failed');
+             },
+             onPaymentComplete({ payment }) {
+                console.log('Payment was completed successfully');
+             },
+             onPaymentFailed({ payment }) {
+               console.log('Payment failed');
              }
-
           };
 
           // once a token is obtained the checkout dialog will be displayed to take in credit card details
