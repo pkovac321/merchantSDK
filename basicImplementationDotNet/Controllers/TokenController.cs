@@ -90,7 +90,8 @@ public class TokenController : ControllerBase
             {
                 CardType = "Visa",
                 Description = "sample token create",
-                SaveOnSuccess = false
+                SaveOnSuccess = false,
+                ApplySurcharge = false,
             },
             Amount = new Amount
             {
