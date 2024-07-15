@@ -60,9 +60,7 @@
  *     PaymentDetails:
  *       type: object
  *       required:
- *         - cardType
  *         - description
- *         - saveOnSuccess
  *       properties:
  *         cardType:
  *           type: string
@@ -108,8 +106,9 @@ export interface Amount {
 }
 
 export interface PaymentDetails {
-  cardType: string
+  cardType?: string
   description: string
-  saveOnSuccess: boolean
+  saveOnSuccess?: boolean
+  capturePayment?: boolean
   clientPaymentTokenUniqueReference?: string
 }

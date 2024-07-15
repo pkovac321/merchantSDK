@@ -153,6 +153,7 @@ async function submitPayment(e) {
 
   const formData = Object.fromEntries(new FormData(form[0]))
   const isSaveOnSuccessChecked = $('#saveOnSuccess').is(':checked')
+  const isCapturePaymentChecked = $('#capturePayment').is(':checked')
 
   // Adjust validation logic based on saveOnSuccess state
   let fieldsToValidate = [
@@ -187,7 +188,6 @@ async function submitPayment(e) {
   toggleLoadingDisplay(true)
 
   try {
-    var saveOnSuccess = $('#saveOnSuccess').is(':checked') // Check if checkbox is checked
     var customerId = isSaveOnSuccessChecked ? $('#customerId').val() : null
     var clientPaymentTokenUniqueReference = isSaveOnSuccessChecked
       ? $('#clientPaymentTokenUniqueReference').val()
@@ -216,9 +216,10 @@ async function submitPayment(e) {
       paymentDetails: {
         cardType: formData.cardType,
         //payment description . This will be saved in Monoova's system. This will not be passed to  issuer.
+        capturePayment: isCapturePaymentChecked,
         description: 'sample token create',
         clientPaymentTokenUniqueReference: clientPaymentTokenUniqueReference,
-        saveOnSuccess: saveOnSuccess
+        saveOnSuccess: isSaveOnSuccessChecked
       },
       amount: {
         currencyAmount: formData.amount.replace('$', '')

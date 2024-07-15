@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -8,7 +8,7 @@
     <style>
       #checkout-container {
         display: flex;
-        flex-direction: col mt-2umn;
+        flex-direction: column;
         padding: 12px 24px;
       }
     </style>
@@ -98,7 +98,6 @@
                 data-type="currency"
                 name="amount"
                 placeholder="$1,000.00"
-                required
               />
             </div>
             <div class="mb-3 col-6">
@@ -223,6 +222,12 @@
                   name="customerId"
                   placeholder="Enter customer ID"
                 />
+              </div>
+              <div class="row g-2">
+                <div class="mb-3 col-12">
+                  <input type="checkbox" class="form-check-input" id="capturePayment" />
+                  <label class="form-check-label" for="capturePayment">Capture Payments</label>
+                </div>
               </div>
             </div>
           </div>
