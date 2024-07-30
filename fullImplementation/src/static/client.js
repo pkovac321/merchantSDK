@@ -84,6 +84,16 @@ $(function () {
     })
   })
 
+  function toggleSurchargeInfo() {
+    var checkbox = document.getElementById('applySurcharge')
+    var info = document.getElementById('surchargeInfo')
+    info.style.display = checkbox.checked ? 'inline' : 'none'
+  }
+
+  toggleSurchargeInfo()
+
+  document.getElementById('applySurcharge').addEventListener('change', toggleSurchargeInfo)
+
   function formatNumber(n) {
     // format number 1000000 to 1,234,567
     return n.replace(/\D/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',')
@@ -192,6 +202,7 @@ async function submitPayment(e) {
     var clientPaymentTokenUniqueReference = isSaveOnSuccessChecked
       ? $('#clientPaymentTokenUniqueReference').val()
       : null
+    var applySurcharge = $('#applySurcharge').is(':checked')
     console.log('saveOnSuccess:' + saveOnSuccess)
     console.log('customerId:' + customerId)
     console.log('clientPaymentTokenUniqueReference:' + clientPaymentTokenUniqueReference)
@@ -215,11 +226,11 @@ async function submitPayment(e) {
       },
       paymentDetails: {
         cardType: formData.cardType,
-        //payment description . This will be saved in Monoova's system. This will not be passed to  issuer.
         capturePayment: isCapturePaymentChecked,
         description: 'sample token create',
         clientPaymentTokenUniqueReference: clientPaymentTokenUniqueReference,
-        saveOnSuccess: isSaveOnSuccessChecked
+        saveOnSuccess: isSaveOnSuccessChecked,
+        applySurcharge: applySurcharge
       },
       amount: {
         currencyAmount: formData.amount.replace('$', '')

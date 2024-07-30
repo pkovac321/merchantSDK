@@ -33,7 +33,7 @@ public class TokenController : ControllerBase
             return BadRequest(loginResponse);
 
         _logger.LogInformation("Successfully logged in with bearer token: {token}", loginResponse.Token);
-        
+
         var tokenResponse = await _monoovaApiService.CreateClientSessionTokenAsync(loginResponse.Token, request, cancellationToken);
         if (tokenResponse.Errors != null)
             return BadRequest(tokenResponse);
@@ -42,7 +42,6 @@ public class TokenController : ControllerBase
         return tokenResponse;
     }
 
-    
     /// <summary>
     /// use this endpoint to create a client session token with custom input
     /// </summary>
@@ -57,7 +56,7 @@ public class TokenController : ControllerBase
         if (loginResponse.Errors != null)
             return BadRequest(loginResponse);
         _logger.LogInformation("Successfully logged in with bearer token: {token}", loginResponse.Token);
-        
+
         var tokenResponse = await _monoovaApiService.CreateClientSessionTokenAsync(loginResponse.Token, request, cancellationToken);
         if (tokenResponse.Errors != null)
             return BadRequest(tokenResponse);
@@ -91,7 +90,8 @@ public class TokenController : ControllerBase
                 CardType = "Visa",
                 Description = "sample token create",
                 SaveOnSuccess = false,
-                CapturePayment = true
+                CapturePayment = true,
+                ApplySurcharge = false,
             },
             Amount = new Amount
             {
