@@ -109,5 +109,6 @@ export interface PaymentDetails {
   cardType?: string
   description: string
   saveOnSuccess?: boolean
+  capturePayment?: boolean
   clientPaymentTokenUniqueReference?: string
 }

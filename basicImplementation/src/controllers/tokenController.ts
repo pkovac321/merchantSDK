@@ -45,7 +45,8 @@ export const createToken = async (req: Request, res: Response) => {
       paymentDetails: {
         cardType: 'Visa',
         description: 'sample token create',
-        saveOnSuccess: false
+        saveOnSuccess: false,
+        capturePayment: true
       },
       amount: {
         currencyAmount: '1.00'

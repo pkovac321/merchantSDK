@@ -16,6 +16,7 @@ public class Customer
 }
 public class PaymentDetails
 {
+    public bool CapturePayment { get; set; } = true;
     public string CardType { get; set; }
     public string Description { get; set; }
     public bool SaveOnSuccess { get; set; }
