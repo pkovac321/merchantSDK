@@ -94,6 +94,15 @@ The customer details are shown below and will be serialised and sent as a body t
 }
 ```
 
+## Updating the SDK Version
+New versions are released periodically with additional features and performance improvements. To update the SDK to the latest version, replace the version number in the stylesheet link and Primer script.
+```html
+<link rel="stylesheet" href="https://sdk.primer.io/web/v2.45.8/Checkout.css" />
+<script src="https://sdk.primer.io/web/v2.45.8/Primer.min.js" crossorigin="anonymous"></script>
+```
+
+The current version of the SDK is 2.45.8.
+
 ## Client.js
 
 This script initiates a server request to the `/token` endpoint. It utilises the provided JSON body for the request. Upon successfully retrieving the token, it invokes the Universal Checkout process.
