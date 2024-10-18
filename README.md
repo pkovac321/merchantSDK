@@ -153,13 +153,13 @@ For a comprehensive handling of other possible checkout scenarios, consider impl
 
 ## Tokenising Card Details
 
-Customer card details can be saved as a token and used for subsequent purchases by setting saveOnSuccess to true in the client session payload. If the card details are validated as correct, this will result in a token being generated and saved against the customers customerId.
+Customer card details can be saved as a token and used for subsequent purchases by setting `saveOnSuccess` to true in the client session payload. If the card details are validated as correct, this will result in a token being generated and saved against the customers `customerId`.
 
-To save card details without taking an upfront payment, pass saveOnSuccess as true, capturePayment as false, and the amount as $0.01.
+To save card details without taking an upfront payment, pass `saveOnSuccess` as `true`, `capturePayment` as `false`, and the `amount` as $0.01.
 
 ## Surcharging
 
-To add a surcharge to the card payment, pass ApplySurcharge as true. Monoova will identify the card type used in the transaction and apply the preconfigured surcharge amount. This surcharge amount is configured in the Monoova backend and can be changed by contacting Monoova support.
+To add a surcharge to the card payment, pass `ApplySurcharge` as true. Monoova will identify the card type used in the transaction and apply the preconfigured surcharge amount. This surcharge amount is configured in the Monoova backend and can be changed by contacting Monoova support.
 
 ## Options Style customisation
 
